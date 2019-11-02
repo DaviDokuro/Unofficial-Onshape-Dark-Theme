@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Make onshape dark themed.
-// @author       David Naoum
+// @author       DaviDokuro
 // @match        https://cad.onshape.com/*
 // @exclude      https://cad.onshape.com/help/*
 // @grant        GM_addStyle

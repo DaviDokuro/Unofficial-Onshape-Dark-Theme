@@ -2,7 +2,7 @@
 // @name         Onshape Dark Theme
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Make onshape dark themed. Currently only for opened documents (requires refresh)
+// @description  Make onshape dark themed.
 // @author       David Naoum
 // @match        https://cad.onshape.com/*
 // @exclude      https://cad.onshape.com/help/*

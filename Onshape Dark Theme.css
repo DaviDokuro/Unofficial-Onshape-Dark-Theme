@@ -1,0 +1,650 @@
+// ==UserScript==
+// @name         Onshape Dark Theme
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Make onshape dark themed. Currently only for opened documents (requires refresh)
+// @author       David Naoum
+// @match        https://cad.onshape.com/*
+// @exclude      https://cad.onshape.com/help/*
+// @grant        GM_addStyle
+// ==/UserScript==
+
+(function() {
+    GM_addStyle(`
+
+
+/* ------------ General Styles --------------- */
+
+#canvas, #viewerdiv{
+	background: #111 !important;
+	background-color: #111 !important;
+	background-image: none !important;
+}
+
+body{
+	background-color: #222;
+	color: #eee;
+}
+
+.is-button,
+.is-hoverable{
+	transition: all 0.3s ease;
+}
+.is-button:hover,
+.is-hoverable:hover{
+	box-shadow: none;
+	background: #555;
+}
+
+os-toolbar .os-tool-disabled-overlay{
+	background: #666 ;
+}
+
+.os-tool-dropdown .os-tool-dropdown-content,
+.dropdown-menu{
+	background: #333 ;
+}
+
+.os-control-container{
+	background: none;
+}
+
+.btn,
+.btn-default{
+	color: #ccc;
+	background-color: #333;
+	transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus{
+	background-color: #555;
+	color: #ccc;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active{
+	color: #ccc;
+	background-color: #555;
+}
+.btn-default.active{
+	color: #ccc;
+	background-color: #777;
+}
+
+.dropdown-menu > li > a{
+	color: #ccc;
+}
+
+.close{
+	color: white;
+	text-shadow: 0 1px 0 #000;
+}
+
+.element-measurement-area{
+	background-color:rgba(51, 51, 51, 0.75);
+}
+.element-measurement-area td{
+	color: #ccc;
+}
+
+/* ------------------- End General Styles -------------------------- */
+
+
+
+
+
+/* --------------------------- Navbar --------------------------------- */
+
+nav.navbar .navbar-document-and-workspace-names .navbar-document-name{
+	color: #eee !important;
+}
+.navbar-default{
+	background-color: #333;
+}
+nav.navbar{
+	color: #ccc;
+}
+nav.navbar .navbar-btn, .os-public-stats .btn{
+	color: #ccc;
+	background-color: #333;
+	transition: all 0.3s ease;
+}
+nav.navbar .navbar-btn:hover, .btn:focus, .os-public-stats .btn:hover{
+	background-color: #666;
+	color: #ccc;
+}
+nav.navbar .dropdown.open>div{
+	background-color: #666 !important;
+	color: #ccc !important;
+}
+
+/* --------------------------- End Navbar ------------------------------- */
+
+
+
+
+
+/* ------------------------ Toolbar -------------------------- */
+
+.custom-toolbar .tool, .custom-toolbar .tool-label{
+	color: #ccc;
+	transition: all 0.3s ease;
+}
+.custom-toolbar .command-search-trigger{
+	background: rgba(255,255,255,0);
+	border: 1px solid #ccc;
+	transition: all 0.3s ease;
+}
+.custom-toolbar .command-search-trigger:hover:not(:disabled){
+    background: rgba(255,255,255,0.25);
+}
+/* ---------------------- End Toolbar ------------------------ */
+
+
+
+
+
+
+/* --------------------- Features ---------------------- */
+
+.ns-dialog{
+	color: white;
+	background-color: hsla(0,0%,20%,.75);
+}
+.external-references-header, .ns-subdialog-header{
+	color: #eee;
+}
+
+.node-indent-line:before, .node-indent-line-end:before{
+	background: rgba(255,255,255,0.2);
+}
+.ns-list-item-rollbackbar{
+	background-color: rgba(255,255,255,0.75);
+}
+.os-list-item.fake-hover .ns-list-item-rollbackbar,
+.os-list-item.fake-hover .os-list-item-background,
+.os-list-item:hover .ns-list-item-rollbackbar,
+.os-list-item:hover .os-list-item-background{
+	background-color: rgba(192,192,192,0.5);
+	transition: all 0.3s ease;
+}
+.open .dropdown-toggle.btn-default{
+	color: #eee;
+}
+
+#part-list .ns-subdialog-header{
+	border-top-color: #666;
+}
+
+/* ------------------- End Features -------------------- */
+
+/* some css shared between these two */
+
+/* --------------- Feature Dialogue -------------- */
+
+.os-dialog-button-edit-name{
+	background-color: #333;
+	color: #eee;
+}
+.os-dialog-button-edit-name:hover{
+	background-color: #666;
+}
+.feature-dialog .ns-dialog-title, .ns-dialog .ns-dialog-title{
+	color: #eee;
+}
+.feature-dialog .ns-dialog-header, .ns-dialog .ns-dialog-header{
+	border-bottom: 1px solid #666;
+	color: #eee;
+}
+.ns-dialog-header .ns-drag-area, .ns-dialog-button-cancel{
+	background-color: #333;
+}
+.os-param-selection-list.os-param-query-list-focus{
+	background: rgba(219, 241, 250, 0.1);
+}
+.os-param-selection-list label.os-param-query-list-label{
+	color: #ccc;
+}
+.ns-dialog-frame, .ns-dialog, .ns-dialog-frame:hover{
+	background-color: hsla(0,0%,20%,.95);
+	color: #eee;
+}
+.os-param-selection-list-entry{
+	color: #ccc;
+}
+.os-param-container:not(.os-param-readonly) .os-param-label:hover{
+	color: white;
+}
+.os-select-bootstrap .os-select-choices-row>span{
+	color: #999;
+}
+.os-param-selection-list-entry-delete{
+	color: rgba(255,255,255,0.25);
+}
+
+.ns-feature-parameter.ns-boolean-value:hover label.os-checkbox, .os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-checkbox-indicator{
+	border-color: #ccc;
+}
+.ns-feature-parameter.ns-boolean-value:hover label.ns-parameter-label, .os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-param-checkbox-label{
+	color: #ccc;
+}
+
+.select-item-dialog-thumbnail-container img{
+	filter: drop-shadow(0 0 3px #ccc);
+}
+.select-item-dialog-item-name:not(.ns-list-item-error){
+	color: white;
+}
+.select-item-tree .select-item-dialog-item.parent-item{
+	overflow: visible !important;
+}
+.document-version-picker-document-filters table tbody tr td div, .document-version-picker-document-filters table tbody tr td span{
+	color: white;
+}
+
+/* ------------- End Feature Dialogue ------------ */
+
+
+
+
+
+/* ---------------- Tab Bar ------------------------*/
+
+#os-tab-bar .os-tab-bar-content{
+	background-color: #222;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb,
+#os-tab-bar .os-tab-bar-tablist .os-tab-bar-tab{
+	background-color: #333;
+	color: #eee;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:after{
+	border-color: transparent transparent transparent #333;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child{
+	background-color: #555;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child:after{
+	background-color: #222;
+	border-color: transparent transparent transparent #555;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child .breadcrumb-flag{
+	background: #555;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb .breadcrumb-flag{
+	background: #333;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb .breadcrumb-flag:before{
+	background: #333;
+    border-left: 8px solid #222;
+}
+#os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child .breadcrumb-flag:before{
+	background: #555;
+}
+#os-tab-bar .os-tab-bar-tablist .os-tab-bar-tab.active{
+	background-color: #555;
+	color: #eee;
+}
+#os-tab-bar .os-tab-bar-controls{
+	background: #222;
+}
+#os-tab-bar .os-tab-bar-controls>div svg:hover{
+	background: hsla(0,0%,80%,0.3);
+}
+.document-tabs-button div:hover{
+	background: hsla(0,0%,80%,0.3) !important;
+}
+
+.rename-tab-input{
+	color: #333;
+}
+
+/* -------------- End Tab Bar ----------------------*/
+
+
+
+
+
+/* ------------- Configurations ----------------*/
+
+.configuration-header-tabs, .configuration-tables-pane{
+	background-color: #222;
+}
+.configuration-pane-footer{
+	background-color: #333;
+}
+.os-splitter{
+	background-color: hsla(0,0%,80%,.5);
+}
+
+/* ----------- End Configurations --------------*/
+
+
+
+
+
+/* ------------------------ Modal ------------------------ */
+
+
+.modal-content{
+	background-color: #333;
+}
+
+.flyout-header,
+.flyout-scroll-content{
+	background-color: #333;
+}
+
+.info-panel .info-panel-footer{
+	background: #444;
+}
+.info-panel-footer{
+	color: #aaa;
+}
+
+.os-title-subheader,
+.versions-history-table-container .os-flex-table-header .os-flex-col{
+	color: #eee;
+}
+
+/* ---------------------- End Modal ---------------------- */
+
+
+
+
+
+/* ======================= SVG Path Recoloring ==================== */
+
+
+/* Nav Bar */
+
+#svg-icon-hamburger-button path{
+	fill: #eee;
+}
+#svg-icon-version-history-graph-button path:nth-child(1){
+	fill: #999;
+}
+#svg-icon-version-history-graph-button path:nth-child(2){
+	fill: #ccc;
+}
+#svg-icon-create-version-button path:nth-child(1){
+	fill: #999;
+}
+#svg-icon-create-version-button path:nth-child(2){
+	fill: #ccc;
+}
+#svg-icon-public path,
+#svg-icon-private path{
+	fill: #ccc;
+}
+#svg-icon-document-links path{
+	fill: #eee;
+}
+#svg-icon-document-copies path{
+	fill: #fff;
+}
+
+#svg-icon-navbar-comments path, #svg-icon-navbar-notifications path, #svg-icon-navbar-help path{
+	fill: #999;
+}
+
+
+
+/* Tool Bar */
+
+#svg-icon-undo-button path, #svg-icon-redo-button path{
+	fill: #ccc;
+}
+#svg-icon-new-sketch-button path{
+	fill: #ccc;
+}
+#svg-icon-helix-button path, #svg-icon-assign-variable-button path, #svg-icon-add-feature-type path{
+	fill: #ccc;
+}
+#svg-icon-fit-spline-button path:nth-child(3),
+#svg-icon-project-curves-button path:nth-child(2),
+#svg-icon-bridging-curve-button path:nth-child(2),
+#svg-icon-composite-curve-button path:nth-child(1){
+	fill: #999;
+}
+
+
+
+/* Sketch SVGs */
+
+#svg-icon-sketch-line-segment-button path:nth-child(1),
+#svg-icon-sketch-rectangle-button path:nth-child(1),
+#svg-icon-sketch-center-rectangle-button path:nth-child(1),
+#svg-icon-sketch-circle-button path:nth-child(1),
+#svg-icon-sketch-perimeter-circle-button path:nth-child(1),
+#svg-icon-sketch-ellipse-button path:nth-child(1),
+#svg-icon-sketch-arc-button path:nth-child(1),
+#svg-icon-sketch-tangent-arc-button path:nth-child(2),
+#svg-icon-sketch-center-arc-button path:nth-child(1),
+#svg-icon-sketch-conic-button path:nth-child(1),
+#svg-icon-sketch-inscribed-polygon-button path:nth-child(2),
+#svg-icon-sketch-circumscribed-polygon-button path:nth-child(2),
+#svg-icon-sketch-spline-button path:nth-child(1),
+#svg-icon-add-spline-point path:nth-child(1),
+#svg-icon-sketch-point-button path:nth-child(1),
+#svg-icon-sketch-text-rectangle-button path:nth-child(2),
+#svg-icon-sketch-use-button path:nth-child(1),
+#svg-icon-sketch-intersection-button path:nth-child(1),
+#svg-icon-sketch-construction-button path:nth-child(2){
+	fill: #999;
+}
+#svg-icon-sketch-fillet-button path:nth-child(1),
+#svg-icon-sketch-trim-button path,
+#svg-icon-sketch-extend-button path:nth-child(2),
+#svg-icon-sketch_split_icon path:nth-child(2),
+#svg-icon-sketch-offset-button path:nth-child(1),
+#svg-icon-sketch-slot-button path:nth-child(1),
+#svg-icon-sketch-mirror-button path:nth-child(2),
+#svg-icon-sketch-lpattern-button path:nth-child(1),
+#svg-icon-sketch-cpattern-button path:nth-child(1),
+#svg-icon-sketch-transform-button path:nth-child(1),
+#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path,
+#svg-icon-sketch-image-rectangle-button path:nth-child(2),
+#svg-icon-sketch-image-rectangle-button path:nth-child(4){
+	fill: #999;
+}
+#svg-icon-sketch-dimension-button path:nth-child(2),
+#svg-icon-sketch-coincident-button path:nth-child(1),
+#svg-icon-sketch-concentric-button path:nth-child(2),
+#svg-icon-sketch-perpendicular-button path:nth-child(3),
+#svg-icon-sketch-equal-button path,
+#svg-icon-sketch-pierce-button path:nth-child(2),
+#svg-icon-sketch-symmetric-button path:nth-child(2),
+#svg-icon-equal-curvature  path:nth-child(2){
+	fill: #999;
+}
+#svg-icon-sketch-dimension-button path:nth-child(1),
+#svg-icon-sketch-concentric-button path:nth-child(1),
+#svg-icon-sketch-parallel-button path:nth-child(1),
+#svg-icon-sketch-tangent-button path:nth-child(1),
+#svg-icon-sketch-perpendicular-button path:nth-child(1),
+#svg-icon-sketch-midpoint-button path:nth-child(1),
+#svg-icon-sketch-normal-button path:nth-child(1),
+#svg-icon-sketch-fix-button path:nth-child(1){
+	stroke: #999;
+}
+
+
+
+/* Configurations */
+
+#svg-icon-configuration-list-button path,
+#svg-icon-configuration-checkbox-button path,
+#svg-icon-configuration-variable-button path{
+	fill: #ccc;
+}
+
+
+
+/* Tab Bar */
+
+#svg-icon-tab-search-button path,
+#svg-icon-plus-button path,
+#svg-icon-home-button path,
+#svg-icon-material-library-element path,
+#svg-icon-feature-studio-element path,
+#svg-icon-folder path,
+#svg-icon-document-upload path,
+#svg-icon-back-tab path,
+#svg-icon-forward-tab path{
+	fill: #ccc;
+}
+
+
+/* Features */
+
+#svg-icon-profile-part-studio path{
+	fill: #999;
+}
+#svg-icon-filter-results-button path{
+	fill: #999;
+}
+
+
+
+/* Measurements */
+
+#svg-icon-mass-properties path{
+	fill: #ccc;
+}
+#svg-icon-arrow-up path{
+	fill: #999;
+}
+
+
+/* Main View */
+#svg-icon-document-upload-cloud path{
+	fill: #ccc;
+}
+#svg-icon-trash path{
+	fill: #ccc;
+}
+#svg-icon-view-list path, #svg-icon-grid-view path{
+	fill: #ccc;
+}
+
+/* ===================== End SVG Path Recoloring ================== */
+
+
+
+
+
+
+
+/* ============ Main View ============== */
+
+.os-billing-banner,
+.os-document-list-page-container .os-action-bar,
+.os-document-list-page-container .os-document-section,
+.os-documents-plan-type,
+table.os-documents-list tr.os-document-in-list,
+.os-items-footer{
+	border-top: 1px solid #555;
+}
+.os-document-list-page-container .os-document-section .os-document-filters{
+	border-right: 1px solid #555;
+}
+div.os-document-filters table.os-document-filter-table tbody tr td.os-filter-divider,
+.os-document-list-page-container .os-document-section .os-document-list-grid-container .document-list-sort-controls,
+.os-document-list-page-container .os-document-section .os-document-list-grid-container .os-document-list-table-header,
+.os-documents-quick-access-content .section-header{
+	border-bottom: 1px solid #555;
+}
+
+.os-splitter {
+    background-color: #555;
+}
+div[os-no-splitter=true] {
+    border-left: 1px solid #555;
+}
+
+.os-where-used-document-close{
+	box-shadow: 0 1px #555;
+}
+#documentDetailPanel .button-bar, #userDetailPanel .button-bar{
+	box-shadow: 0 0 0 1px #555;
+}
+
+
+os-breadcrumb .os-breadcrumb-container .os-breadcrumb-leaf{
+	color: #fff;
+}
+#documentDetailPanel .button-bar, #userDetailPanel .button-bar{
+	background-color: #333;
+}
+
+#document-list-toolbar-buttons .document-list-toolbar-controls{
+	background: #333;
+}
+
+
+.os-documents-quick-access-content .section-header,
+.os-where-used-document-close{
+	background: #333;
+}
+
+.document-details-top h2, .document-details-top p{
+	color: #ccc;
+}
+
+#documentDetailPanel .button-bar .button-bar-group div.button-container,
+#userDetailPanel .button-bar .button-bar-group div.button-container{
+	background: none;
+}
+
+#documentDetailPanel .button-bar .button-bar-group div.button-container div.action-button,
+#userDetailPanel .button-bar .button-bar-group div.button-container div.action-button{
+	color: #ccc;
+}
+
+#documentDetailPanel .button-bar .button-bar-group div.button-container div.action-button.active,
+#userDetailPanel .button-bar .button-bar-group div.button-container div.action-button.active{
+	color: #1b5faa;
+}
+
+#documentDetailPanel .button-bar .button-bar-group div.button-container div.action-button:hover,
+#userDetailPanel .button-bar .button-bar-group div.button-container div.action-button:hover{
+	background-color: #555;
+}
+
+.sharing-details-section .os-minor-permission-list span{
+	background: #444;
+}
+
+.versions-history-table-container .os-flex-col{
+	color: #eee;
+}
+.detail-pane-footer .branch-point-name,
+.detail-pane-footer .version-name,
+.model-flyout-versions-history .branch-point-name,
+.model-flyout-versions-history .version-name,
+.versions-history-page-content .branch-point-name,
+.versions-history-page-content .version-name{
+	color: #ccc;
+}
+
+.os-documents-grid{
+	background: none;
+}
+
+.os-searchbox .advanced-search-panel{
+	background-color: #333;
+}
+
+.os-items-footer .footer-inner{
+	background: #333;
+	border-top: 1px solid #555;
+}
+
+/* ========== End Main View ============ */
+
+
+    `);
+})();

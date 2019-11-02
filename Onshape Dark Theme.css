@@ -232,7 +232,7 @@ nav.navbar .dropdown.open>div{
 }
 
 .select-item-dialog-thumbnail-container img{
-	filter: drop-shadow(0 0 3px #ccc);
+	filter: drop-shadow(0 0 3px #777);
 }
 .select-item-dialog-item-name:not(.ns-list-item-error){
 	color: white;
@@ -544,7 +544,6 @@ nav.navbar .dropdown.open>div{
 .os-document-list-page-container .os-action-bar,
 .os-document-list-page-container .os-document-section,
 .os-documents-plan-type,
-table.os-documents-list tr.os-document-in-list,
 .os-items-footer{
 	border-top: 1px solid #555;
 }
@@ -558,18 +557,23 @@ div.os-document-filters table.os-document-filter-table tbody tr td.os-filter-div
 	border-bottom: 1px solid #555;
 }
 
+
+table.os-documents-list tr.os-document-in-list{
+	border-top: 1px solid #333;
+}
+
 .os-splitter {
-    background-color: #555;
+    background-color: #444;
 }
 div[os-no-splitter=true] {
-    border-left: 1px solid #555;
+    border-left: 1px solid #444;
 }
 
 .os-where-used-document-close{
-	box-shadow: 0 1px #555;
+	box-shadow: 0 1px #444;
 }
 #documentDetailPanel .button-bar, #userDetailPanel .button-bar{
-	box-shadow: 0 0 0 1px #555;
+	box-shadow: 0 0 0 1px #444;
 }
 
 
@@ -641,6 +645,10 @@ os-breadcrumb .os-breadcrumb-container .os-breadcrumb-leaf{
 .os-items-footer .footer-inner{
 	background: #333;
 	border-top: 1px solid #555;
+}
+
+img.os-thumbnail-image{
+	filter: drop-shadow(0 0 3px #777);
 }
 
 /* ========== End Main View ============ */

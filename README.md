@@ -1,2 +1,2 @@
 # Onshape-Dark-Theme
-A dark theme for Onshape Using Tampermonkey
+A dark theme for Onshape using Tampermonkey

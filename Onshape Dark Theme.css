@@ -16,8 +16,8 @@
 /* ------------ General Styles --------------- */
 
 #canvas, #viewerdiv{
-	background: #111 !important;
-	background-color: #111 !important;
+	background: #222 !important;
+	background-color: #222 !important;
 	background-image: none !important;
 }
 
@@ -87,6 +87,10 @@ os-toolbar .os-tool-disabled-overlay{
 }
 .element-measurement-area td{
 	color: #ccc;
+}
+
+.dimension-edit{
+	background: #333;
 }
 
 /* ------------------- End General Styles -------------------------- */
@@ -253,32 +257,32 @@ nav.navbar .dropdown.open>div{
 /* ---------------- Tab Bar ------------------------*/
 
 #os-tab-bar .os-tab-bar-content{
-	background-color: #222;
+	background-color: #333;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb,
 #os-tab-bar .os-tab-bar-tablist .os-tab-bar-tab{
-	background-color: #333;
+	background-color: #444;
 	color: #eee;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:after{
-	border-color: transparent transparent transparent #333;
+	border-color: transparent transparent transparent #444;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child{
 	background-color: #555;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child:after{
-	background-color: #222;
+	background-color: #333;
 	border-color: transparent transparent transparent #555;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child .breadcrumb-flag{
 	background: #555;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb .breadcrumb-flag{
-	background: #333;
+	background: #444;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb .breadcrumb-flag:before{
-	background: #333;
-    border-left: 8px solid #222;
+	background: #444;
+    border-left: 8px solid #333;
 }
 #os-tab-bar .os-tab-bar-breadcrumbs .os-tab-bar-breadcrumb:last-child .breadcrumb-flag:before{
 	background: #555;
@@ -288,7 +292,7 @@ nav.navbar .dropdown.open>div{
 	color: #eee;
 }
 #os-tab-bar .os-tab-bar-controls{
-	background: #222;
+	background: #333;
 }
 #os-tab-bar .os-tab-bar-controls>div svg:hover{
 	background: hsla(0,0%,80%,0.3);
@@ -298,7 +302,7 @@ nav.navbar .dropdown.open>div{
 }
 
 .rename-tab-input{
-	color: #333;
+	color: #444;
 }
 
 /* -------------- End Tab Bar ----------------------*/

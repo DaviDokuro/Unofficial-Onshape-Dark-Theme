@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Onshape Dark Theme
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      0.1
 // @description  Make onshape dark themed.
 // @author       DaviDokuro
 // @match        https://cad.onshape.com/*
@@ -24,6 +24,10 @@
 body{
 	background-color: #222;
 	color: #eee;
+}
+
+.navbar-onshape-logo{
+	filter: drop-shadow(0 0 12px #fff);
 }
 
 .is-button,
@@ -93,6 +97,23 @@ os-toolbar .os-tool-disabled-overlay{
 	background: #333;
 }
 
+span.title-description{
+	color: #ccc;
+}
+
+.form-control, .form-control option{
+	color: #fff;
+	background-color: #444;
+}
+
+select.form-control:disabled {
+    background-color: #888 !important;
+}
+
+.measurement-item{
+	color: #ccc;
+}
+
 /* ------------------- End General Styles -------------------------- */
 
 
@@ -144,6 +165,7 @@ nav.navbar .dropdown.open>div{
 .custom-toolbar .command-search-trigger:hover:not(:disabled){
     background: rgba(255,255,255,0.25);
 }
+
 /* ---------------------- End Toolbar ------------------------ */
 
 
@@ -152,13 +174,20 @@ nav.navbar .dropdown.open>div{
 
 
 /* --------------------- Features ---------------------- */
-
+.content-pane-folder{
+	border: none;
+}
 .ns-dialog{
 	color: white;
 	background-color: hsla(0,0%,20%,.75);
 }
 .external-references-header, .ns-subdialog-header{
 	color: #eee;
+}
+
+.os-field input, .os-field textarea{
+	background-color: #333;
+	color: #ccc;
 }
 
 .node-indent-line:before, .node-indent-line-end:before{
@@ -218,6 +247,9 @@ nav.navbar .dropdown.open>div{
 .os-param-selection-list-entry{
 	color: #ccc;
 }
+.os-param-label{
+	color: #999;
+}
 .os-param-container:not(.os-param-readonly) .os-param-label:hover{
 	color: white;
 }
@@ -228,10 +260,12 @@ nav.navbar .dropdown.open>div{
 	color: rgba(255,255,255,0.25);
 }
 
-.ns-feature-parameter.ns-boolean-value:hover label.os-checkbox, .os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-checkbox-indicator{
+.ns-feature-parameter.ns-boolean-value:hover label.os-checkbox, 
+.os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-checkbox-indicator{
 	border-color: #ccc;
 }
-.ns-feature-parameter.ns-boolean-value:hover label.ns-parameter-label, .os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-param-checkbox-label{
+.ns-feature-parameter.ns-boolean-value:hover label.ns-parameter-label, 
+.os-param-container:not(.os-param-readonly) label.os-param-checkbox:hover:not(.os-param-readonly-checkbox):not(:disabled) .os-param-checkbox-label{
 	color: #ccc;
 }
 
@@ -305,13 +339,38 @@ nav.navbar .dropdown.open>div{
 	color: #444;
 }
 
-/* -------------- End Tab Bar ----------------------*/
+/* -------------- End Tab Bar ---------------------- */
+
+
+
+
+/* ------------------ Material Library ---------------- */
+
+.os-dialog-tab.active-tab, .os-dialog-tab.selected{
+	box-shadow: none;
+	color: #eee;
+}
+
+.ns-dialog-frame, .ns-dialog, .ns-dialog-frame:hover{
+	color: #999;
+}
+.os-dialog-tab:hover{
+	color: #ccc;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>span{
+	color: #ccc;
+}
+
+
+/* ------------------ End Material Library ---------------- */
 
 
 
 
 
-/* ------------- Configurations ----------------*/
+
+/* ------------- Configurations ---------------- */
 
 .configuration-header-tabs, .configuration-tables-pane{
 	background-color: #222;
@@ -323,7 +382,7 @@ nav.navbar .dropdown.open>div{
 	background-color: hsla(0,0%,80%,.5);
 }
 
-/* ----------- End Configurations --------------*/
+/* ----------- End Configurations -------------- */
 
 
 
@@ -379,9 +438,14 @@ nav.navbar .dropdown.open>div{
 #svg-icon-create-version-button path:nth-child(2){
 	fill: #ccc;
 }
-#svg-icon-public path,
+#svg-icon-public path{
+	fill: #cfc;
+}
 #svg-icon-private path{
-	fill: #ccc;
+	fill: #fcc;
+}
+#svg-icon-document-likes path{
+	fill: #eee;
 }
 #svg-icon-document-links path{
 	fill: #eee;
@@ -390,7 +454,9 @@ nav.navbar .dropdown.open>div{
 	fill: #fff;
 }
 
-#svg-icon-navbar-comments path, #svg-icon-navbar-notifications path, #svg-icon-navbar-help path{
+#svg-icon-navbar-comments path, 
+#svg-icon-navbar-notifications path, 
+#svg-icon-navbar-help path{
 	fill: #999;
 }
 
@@ -398,13 +464,16 @@ nav.navbar .dropdown.open>div{
 
 /* Tool Bar */
 
-#svg-icon-undo-button path, #svg-icon-redo-button path{
+#svg-icon-undo-button path, 
+#svg-icon-redo-button path{
 	fill: #ccc;
 }
 #svg-icon-new-sketch-button path{
 	fill: #ccc;
 }
-#svg-icon-helix-button path, #svg-icon-assign-variable-button path, #svg-icon-add-feature-type path{
+#svg-icon-helix-button path, 
+#svg-icon-assign-variable-button path, 
+#svg-icon-add-feature-type path{
 	fill: #ccc;
 }
 #svg-icon-fit-spline-button path:nth-child(3),
@@ -418,6 +487,7 @@ nav.navbar .dropdown.open>div{
 
 /* Sketch SVGs */
 
+
 #svg-icon-sketch-line-segment-button path:nth-child(1),
 #svg-icon-sketch-rectangle-button path:nth-child(1),
 #svg-icon-sketch-center-rectangle-button path:nth-child(1),
@@ -425,6 +495,7 @@ nav.navbar .dropdown.open>div{
 #svg-icon-sketch-perimeter-circle-button path:nth-child(1),
 #svg-icon-sketch-ellipse-button path:nth-child(1),
 #svg-icon-sketch-arc-button path:nth-child(1),
+#svg-icon-sketch-tangent-arc-button path:nth-child(1),
 #svg-icon-sketch-tangent-arc-button path:nth-child(2),
 #svg-icon-sketch-center-arc-button path:nth-child(1),
 #svg-icon-sketch-conic-button path:nth-child(1),
@@ -437,11 +508,18 @@ nav.navbar .dropdown.open>div{
 #svg-icon-sketch-use-button path:nth-child(1),
 #svg-icon-sketch-intersection-button path:nth-child(1),
 #svg-icon-sketch-construction-button path:nth-child(2){
+	fill: #ccc;}
+
+#svg-icon-add-spline-point path:nth-child(2),
+#svg-icon-sketch-construction-button path:nth-child(1){
 	fill: #999;
 }
+
+
 #svg-icon-sketch-fillet-button path:nth-child(1),
+#svg-icon-sketch-fillet-button path:nth-child(3),
 #svg-icon-sketch-trim-button path,
-#svg-icon-sketch-extend-button path:nth-child(2),
+#svg-icon-sketch-extend-button path:nth-child(3),
 #svg-icon-sketch_split_icon path:nth-child(2),
 #svg-icon-sketch-offset-button path:nth-child(1),
 #svg-icon-sketch-slot-button path:nth-child(1),
@@ -449,31 +527,65 @@ nav.navbar .dropdown.open>div{
 #svg-icon-sketch-lpattern-button path:nth-child(1),
 #svg-icon-sketch-cpattern-button path:nth-child(1),
 #svg-icon-sketch-transform-button path:nth-child(1),
-#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path,
+#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path:nth-child(1),
+#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path:nth-child(3),
+#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path:nth-child(4),
 #svg-icon-sketch-image-rectangle-button path:nth-child(2),
 #svg-icon-sketch-image-rectangle-button path:nth-child(4){
+	fill: #eee;
+}
+#svg-icon-sketch-extend-button path:nth-child(2){
+	fill: #ccc;
+}
+#svg-icon-sketch-extend-button path:nth-child(1),
+#svg-icon-sketch_split_icon path:nth-child(1),
+#svg-icon-sketch-offset-button path:nth-child(2),
+#svg-icon-sketch-slot-button path:nth-child(2),
+#svg-icon-sketch-mirror-button path:nth-child(1),
+#svg-icon-sketch-lpattern-button path:nth-child(2),
+#svg-icon-sketch-cpattern-button path:nth-child(2),
+#svg-icon-sketch-transform-button path:nth-child(2){
 	fill: #999;
 }
-#svg-icon-sketch-dimension-button path:nth-child(2),
+#svg-icon-150715_Sketch_Icons_30_InsertDXFDWG path:nth-child(2){
+	fill: #333;
+}
+
+
+#svg-icon-sketch-dimension-button path,
 #svg-icon-sketch-coincident-button path:nth-child(1),
-#svg-icon-sketch-concentric-button path:nth-child(2),
-#svg-icon-sketch-perpendicular-button path:nth-child(3),
-#svg-icon-sketch-equal-button path,
-#svg-icon-sketch-pierce-button path:nth-child(2),
-#svg-icon-sketch-symmetric-button path:nth-child(2),
-#svg-icon-equal-curvature  path:nth-child(2){
-	fill: #999;
-}
-#svg-icon-sketch-dimension-button path:nth-child(1),
-#svg-icon-sketch-concentric-button path:nth-child(1),
 #svg-icon-sketch-parallel-button path:nth-child(1),
 #svg-icon-sketch-tangent-button path:nth-child(1),
 #svg-icon-sketch-perpendicular-button path:nth-child(1),
 #svg-icon-sketch-midpoint-button path:nth-child(1),
-#svg-icon-sketch-normal-button path:nth-child(1),
+#svg-icon-sketch-normal-button path:nth-child(2),
+#svg-icon-sketch-pierce-button path:nth-child(1),
+#svg-icon-sketch-symmetric-button path:nth-child(1),
+#svg-icon-equal-curvature  path:nth-child(2),
 #svg-icon-sketch-fix-button path:nth-child(1){
-	stroke: #999;
+	fill: #ccc;
 }
+#svg-icon-sketch-coincident-button path:nth-child(2),
+#svg-icon-sketch-concentric-button path:nth-child(1),
+#svg-icon-sketch-parallel-button path:nth-child(2),
+#svg-icon-sketch-tangent-button path:nth-child(2),
+#svg-icon-sketch-horizontal-button path,
+#svg-icon-sketch-vertical-button path,
+#svg-icon-sketch-perpendicular-button path:nth-child(2),
+#svg-icon-sketch-equal-button path,
+#svg-icon-sketch-midpoint-button path:nth-child(2),
+#svg-icon-sketch-normal-button path:nth-child(1),
+#svg-icon-sketch-pierce-button path:nth-child(2),
+#svg-icon-sketch-symmetric-button path:nth-child(2),
+#svg-icon-sketch-fix-button path:nth-child(2){
+	fill: #eee;
+}
+#svg-icon-sketch-concentric-button path:nth-child(2),
+#svg-icon-sketch-symmetric-button path:nth-child(3){
+	fill: #999;
+}
+
+
 
 
 
@@ -484,6 +596,12 @@ nav.navbar .dropdown.open>div{
 #svg-icon-configuration-variable-button path{
 	fill: #ccc;
 }
+
+/* Custom Tables */
+#svg-icon-featurescript-table-button path:nth-child(1){
+	fill: #fff;
+}
+
 
 
 
@@ -510,16 +628,24 @@ nav.navbar .dropdown.open>div{
 #svg-icon-filter-results-button path{
 	fill: #999;
 }
-
+#svg-icon-treelist-button path{
+	fill: #ccc;
+}
+#svg-icon-add-button path{
+	fill: #ccc;
+}
 
 
 /* Measurements */
 
 #svg-icon-mass-properties path{
-	fill: #ccc;
+	fill: #eee;
 }
 #svg-icon-arrow-up path{
 	fill: #999;
+}
+#svg-icon-measure-button path{
+	fill: #eee;
 }
 
 
@@ -530,7 +656,8 @@ nav.navbar .dropdown.open>div{
 #svg-icon-trash path{
 	fill: #ccc;
 }
-#svg-icon-view-list path, #svg-icon-grid-view path{
+#svg-icon-view-list path, 
+#svg-icon-grid-view path{
 	fill: #ccc;
 }
 

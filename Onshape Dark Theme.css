@@ -27,7 +27,7 @@ body{
 }
 
 .navbar-onshape-logo{
-	filter: drop-shadow(0 0 12px #fff);
+	filter: drop-shadow(0 0 3px #fff);
 }
 
 .is-button,
@@ -112,6 +112,14 @@ select.form-control:disabled {
 
 .measurement-item{
 	color: #ccc;
+}
+
+.context-menu-list{
+	background: #444;
+}
+
+.context-menu-item{
+	color: #eee;	
 }
 
 /* ------------------- End General Styles -------------------------- */

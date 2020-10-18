@@ -630,15 +630,11 @@ nav.navbar .dropdown.open>div{
 
 /* Features */
 
-#svg-icon-profile-part-studio path{
-	fill: #999;
-}
+#svg-icon-profile-part-studio path,
 #svg-icon-filter-results-button path{
 	fill: #999;
 }
-#svg-icon-treelist-button path{
-	fill: #ccc;
-}
+#svg-icon-treelist-button path,
 #svg-icon-add-button path{
 	fill: #ccc;
 }
@@ -646,24 +642,20 @@ nav.navbar .dropdown.open>div{
 
 /* Measurements */
 
-#svg-icon-mass-properties path{
+#svg-icon-mass-properties path,
+#svg-icon-measure-button path{
 	fill: #eee;
 }
 #svg-icon-arrow-up path{
 	fill: #999;
 }
-#svg-icon-measure-button path{
-	fill: #eee;
-}
 
 
 /* Main View */
-#svg-icon-document-upload-cloud path{
-	fill: #ccc;
-}
-#svg-icon-trash path{
-	fill: #ccc;
-}
+#svg-icon-myDocuments path,
+#svg-icon-recentlyOpened path,
+#svg-icon-document-upload-cloud path,
+#svg-icon-trash path,
 #svg-icon-view-list path, 
 #svg-icon-grid-view path{
 	fill: #ccc;
@@ -788,6 +780,18 @@ os-breadcrumb .os-breadcrumb-container .os-breadcrumb-leaf{
 
 img.os-thumbnail-image{
 	filter: drop-shadow(0 0 3px #777);
+}
+
+.os-documents-grid .os-document-card, .os-documents-grid .os-folder-card, .os-documents-quick-access-content .os-document-card{
+	background: #333;
+}
+
+.os-documents-grid .os-document-card .os-document-card-header, .os-documents-grid .os-document-card .os-document-card-quick-access-header, .os-documents-grid .os-folder-card .os-document-card-header, .os-documents-grid .os-folder-card .os-document-card-quick-access-header, .os-documents-quick-access-content .os-document-card .os-document-card-header, .os-documents-quick-access-content .os-document-card .os-document-card-quick-access-header{
+	background: #444;
+}
+
+.os-documents-grid .os-document-card .os-document-card-header .document-name a, .os-documents-grid .os-document-card .os-document-card-header .document-name span, .os-documents-grid .os-document-card .os-document-card-quick-access-header .document-name a, .os-documents-grid .os-document-card .os-document-card-quick-access-header .document-name span, .os-documents-grid .os-folder-card .os-document-card-header .document-name a, .os-documents-grid .os-folder-card .os-document-card-header .document-name span, .os-documents-grid .os-folder-card .os-document-card-quick-access-header .document-name a, .os-documents-grid .os-folder-card .os-document-card-quick-access-header .document-name span, .os-documents-quick-access-content .os-document-card .os-document-card-header .document-name a, .os-documents-quick-access-content .os-document-card .os-document-card-header .document-name span, .os-documents-quick-access-content .os-document-card .os-document-card-quick-access-header .document-name a, .os-documents-quick-access-content .os-document-card .os-document-card-quick-access-header .document-name span{
+	color: #fff;
 }
 
 /* ========== End Main View ============ */

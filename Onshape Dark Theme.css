@@ -119,9 +119,12 @@ select.form-control:disabled {
 }
 
 .context-menu-item{
-	color: #eee;	
+	color: #ccc;	
 }
 
+.context-menu-item.hover{
+	color: #fff;	
+}
 /* ------------------- End General Styles -------------------------- */
 
 

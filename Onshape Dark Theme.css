@@ -138,6 +138,10 @@ select.form-control:disabled {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
 	color: #fff;		
 }
+
+.loading-progress-background{
+	background-color: #333;
+}
 /* ------------------- End General Styles -------------------------- */
 
 

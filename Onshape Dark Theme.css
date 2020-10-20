@@ -125,6 +125,19 @@ select.form-control:disabled {
 .context-menu-item.hover{
 	color: #fff;	
 }
+
+.enterprise-context-menu .dropdown-menu, 
+.enterprise-project-context-menu .dropdown-menu{
+	background: #444;
+}
+
+.dropdown-menu > li > a{
+	color: #ccc;		
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+	color: #fff;		
+}
 /* ------------------- End General Styles -------------------------- */
 
 

@@ -162,6 +162,14 @@ select.form-control:disabled {
 .os-btn, .os-button{
 	background: #666;
 }
+
+.tab-preview{
+	background: #333;
+}
+
+#measure-dialog{
+	background-color: #333;
+}
 /* ------------------- End General Styles -------------------------- */
 
 

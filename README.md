@@ -1,4 +1,4 @@
-# UNOFFICIAL Onshape Dark Theme
+# Unofficial Onshape Dark Theme
 A dark theme for Onshape using Tampermonkey.
 This theme is not officially supported by Onshape. Updates to Onshape may make this script out of date. I plan to keep the script up to date, but it needs to be stated that Onshape is not responsible if I do not. 
 

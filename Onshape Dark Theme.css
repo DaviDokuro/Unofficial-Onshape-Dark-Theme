@@ -170,6 +170,15 @@ select.form-control:disabled {
 #measure-dialog{
 	background-color: #333;
 }
+
+.os-appearance-list .os-body-row .os-appearance-item-property{
+	background-color: #333;
+}
+
+.right-pane-content-footer{
+	background-color: #333;
+}
+
 /* ------------------- End General Styles -------------------------- */
 
 
@@ -527,19 +536,79 @@ nav.navbar .dropdown.open>div{
 #svg-icon-redo-button path{
 	fill: #ccc;
 }
-#svg-icon-new-sketch-button path{
-	fill: #ccc;
+#svg-icon-new-sketch-button path:nth-child(1){
+	fill: #666;
+}
+#svg-icon-new-sketch-button path:nth-child(2){
+	fill: #fff;
+}
+#svg-icon-new-sketch-button path:nth-child(3){
+	fill: #999;
 }
 #svg-icon-helix-button path, 
 #svg-icon-assign-variable-button path, 
 #svg-icon-add-feature-type path{
-	fill: #ccc;
+	fill: #eee;
 }
-#svg-icon-fit-spline-button path:nth-child(3),
+#svg-icon-fit-spline-button path:nth-child(1){
+	fill: #999;
+}
+#svg-icon-fit-spline-button path:nth-child(2),
 #svg-icon-project-curves-button path:nth-child(2),
 #svg-icon-bridging-curve-button path:nth-child(2),
 #svg-icon-composite-curve-button path:nth-child(1){
+	fill: #eee;
+}
+
+#svg-icon-circular-pattern-button path:nth-child(1),
+#svg-icon-curve-pattern-button path:nth-child(1){
+	fill: #444;
+}
+#svg-icon-circular-pattern-button path:nth-child(2),
+#svg-icon-curve-pattern-button path:nth-child(3){
+	fill: #bbb;
+}
+#svg-icon-circular-pattern-button path:nth-child(3),
+#svg-icon-curve-pattern-button path:nth-child(2){
+	fill: #fff;
+}
+#svg-icon-circular-pattern-button path:nth-child(4),
+#svg-icon-curve-pattern-button path:nth-child(4){
+	fill: #666;
+}
+
+#svg-icon-transform-button path:nth-child(1){
+	fill: #666;
+}
+#svg-icon-transform-button path:nth-child(2){
+	fill: #fff;
+}
+#svg-icon-transform-button path:nth-child(3){
+	fill: #333;
+}
+
+#svg-icon-wrap-button path:nth-child(5),
+#svg-icon-wrap-button path:nth-child(6){
+	fill: #666;
+}
+#svg-icon-wrap-button path:nth-child(7){
 	fill: #999;
+}
+
+#svg-icon-delete-bodies-button path:nth-child(2),
+#svg-icon-delete-face-button path:nth-child(2){
+	fill: #fff;
+}
+#svg-icon-delete-bodies-button path:nth-child(3),
+#svg-icon-delete-face-button path:nth-child(3){
+	fill: #222;
+}
+
+#svg-icon-modify-fillet-button path:nth-child(2),
+#svg-icon-move-face-button path:nth-child(1),
+#svg-icon-import-derived-button path:nth-child(4),
+#svg-icon-sheet-metal-end-button path:nth-child(4){
+	fill: #fff;
 }
 
 
@@ -847,6 +916,20 @@ img.os-thumbnail-image{
 
 /* ========== End Main View ============ */
 
+
+
+
+/* ---- "My Account" page ---- */
+
+.user-page-container .user-page-inner-wrapper .user-page-body .user-page-sidebar li a, .user-page-container .user-page-inner-wrapper .user-page-body .user-page-sidebar li span{
+	color: #ddd;
+}
+
+.os-mini-toolbar-preview{
+	background-color: #333;
+}
+
+/* ---- End "My Account" page ---- */
 
     `);
 })();

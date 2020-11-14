@@ -577,11 +577,15 @@ nav.navbar .dropdown.open>div{
 	fill: #666;
 }
 
+#svg-icon-split-part-button path:nth-child(3){
+	fill: #999;
+}
+
 #svg-icon-transform-button path:nth-child(1){
-	fill: #666;
+	fill: #fff;
 }
 #svg-icon-transform-button path:nth-child(2){
-	fill: #fff;
+	fill: #666;
 }
 #svg-icon-transform-button path:nth-child(3){
 	fill: #333;
@@ -610,7 +614,12 @@ nav.navbar .dropdown.open>div{
 #svg-icon-sheet-metal-end-button path:nth-child(4){
 	fill: #fff;
 }
-
+#svg-icon-move-face-button path:nth-child(2){
+	fill: #666;
+}
+#svg-icon-import-derived-button path:nth-child(2){
+	fill: #999;
+}
 
 
 /* Sketch SVGs */

@@ -142,6 +142,26 @@ select.form-control:disabled {
 .loading-progress-background{
 	background-color: #333;
 }
+
+.import-option-container .import-option.selected{
+	background: #444;
+}
+
+.tree-container, .document-tab-list{
+	background: #333;
+}
+
+.metadata-editor-body, metadata-property, metadata-property-sheet, release-package-property-sheet{
+	background: #333;
+}
+
+.ui-select-container.os-ui-singleselect.category-picker.as-metadata-property .form-control[disabled]{
+	background-color: #666;
+}
+
+.os-btn, .os-button{
+	background: #666;
+}
 /* ------------------- End General Styles -------------------------- */
 
 
@@ -164,7 +184,7 @@ nav.navbar .navbar-btn, .os-public-stats .btn{
 	background-color: #333;
 	transition: all 0.3s ease;
 }
-nav.navbar .navbar-btn:hover, .btn:focus, .os-public-stats .btn:hover{
+nav.navbar .navbar-btn:hover, .btn:focus, .os-public-stats .btn:hover, nav.navbar .navbar-btn.active-tool{
 	background-color: #666;
 	color: #ccc;
 }
@@ -194,6 +214,9 @@ nav.navbar .dropdown.open>div{
     background: rgba(255,255,255,0.25);
 }
 
+.custom-toolbar .tool-row, .custom-toolbar .command-search, .custom-toolbar .tool-palette{
+	background: #333;
+}
 /* ---------------------- End Toolbar ------------------------ */
 
 

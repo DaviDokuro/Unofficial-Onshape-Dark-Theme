@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Onshape Dark Theme
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Make onshape dark themed.
 // @author       DaviDokuro
 // @match        https://cad.onshape.com/*
@@ -179,7 +179,28 @@ select.form-control:disabled {
 	background-color: #333;
 }
 
+.os-mini-toolbar-panel.os-mini-toolbar-incontext{
+	background-color: #444;
+}
+
+
 /* ------------------- End General Styles -------------------------- */
+
+
+
+
+
+/* ----------- Material Library ------------------- */
+.os-table-description {
+    background-color: #444;
+}
+.table-row, .table-row--head{
+	background: #333;
+	color: #fff;
+}
+
+/* ----------- End Material Library ------------------- */
+
 
 
 
@@ -578,7 +599,7 @@ nav.navbar .dropdown.open>div{
 }
 
 #svg-icon-split-part-button path:nth-child(3){
-	fill: #999;
+	fill: #000;
 }
 
 #svg-icon-transform-button path:nth-child(1){
@@ -610,16 +631,21 @@ nav.navbar .dropdown.open>div{
 
 #svg-icon-modify-fillet-button path:nth-child(2),
 #svg-icon-move-face-button path:nth-child(1),
-#svg-icon-import-derived-button path:nth-child(4),
-#svg-icon-sheet-metal-end-button path:nth-child(4){
+#svg-icon-import-derived-button path:nth-child(4){
 	fill: #fff;
 }
 #svg-icon-move-face-button path:nth-child(2){
 	fill: #666;
 }
 #svg-icon-import-derived-button path:nth-child(2){
-	fill: #999;
+	fill: #ccc;
 }
+
+
+#svg-icon-sheet-metal-end-button path:nth-child(4){
+	fill: #ccc;
+}
+
 
 
 /* Sketch SVGs */

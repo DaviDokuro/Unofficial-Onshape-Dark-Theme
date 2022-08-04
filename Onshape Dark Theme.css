@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Onshape Dark Theme
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Make onshape dark themed.
 // @author       DaviDokuro
 // @match        https://cad.onshape.com/*
@@ -13,7 +13,31 @@
     GM_addStyle(`
 
 
-/* ------------ General Styles --------------- */
+/* ------------ Misc Styles --------------- */
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 4px;
+  margin: 1px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+
+
 
 #canvas, #viewerdiv{
 	background: #222 !important;
@@ -24,10 +48,6 @@
 body{
 	background-color: #222;
 	color: #eee;
-}
-
-.navbar-onshape-logo{
-	filter: drop-shadow(0 0 3px #fff);
 }
 
 .is-button,
@@ -183,8 +203,12 @@ select.form-control:disabled {
 	background-color: #444;
 }
 
+.document-panel-dropdown-menu .dropdown-item{
+	color: #eee;
+}
 
-/* ------------------- End General Styles -------------------------- */
+
+/* ------------------- End Misc Styles -------------------------- */
 
 
 
@@ -198,6 +222,23 @@ select.form-control:disabled {
 	background: #333;
 	color: #fff;
 }
+
+.os-dialog-tab.active-tab, .os-dialog-tab.selected{
+	box-shadow: none;
+	color: #eee;
+}
+
+.ns-dialog-frame, .ns-dialog, .ns-dialog-frame:hover{
+	color: #999;
+}
+.os-dialog-tab:hover{
+	color: #ccc;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>span{
+	color: #ccc;
+}
+
 
 /* ----------- End Material Library ------------------- */
 
@@ -254,6 +295,24 @@ nav.navbar .dropdown.open>div{
 
 .custom-toolbar .tool-row, .custom-toolbar .command-search, .custom-toolbar .tool-palette{
 	background: #333;
+}
+
+.os-panel-select-bar{
+	background-color: #222;
+}
+
+.os-button:hover{
+	background: #666;
+}
+
+.document-panel-header{
+	background: #333;
+}
+
+.os-thumbnail.document-thumbnail-highlight .thumbnail-container{
+	  background: #555;
+    border: solid #666;
+    border-width: 1px 1px 1px;
 }
 /* ---------------------- End Toolbar ------------------------ */
 
@@ -428,32 +487,10 @@ nav.navbar .dropdown.open>div{
 	color: #444;
 }
 
+.element-thumbnail{
+	background: #333;
+}
 /* -------------- End Tab Bar ---------------------- */
-
-
-
-
-/* ------------------ Material Library ---------------- */
-
-.os-dialog-tab.active-tab, .os-dialog-tab.selected{
-	box-shadow: none;
-	color: #eee;
-}
-
-.ns-dialog-frame, .ns-dialog, .ns-dialog-frame:hover{
-	color: #999;
-}
-.os-dialog-tab:hover{
-	color: #ccc;
-}
-
-.ui-select-bootstrap .ui-select-choices-row>span{
-	color: #ccc;
-}
-
-
-/* ------------------ End Material Library ---------------- */
-
 
 
 
@@ -508,6 +545,16 @@ nav.navbar .dropdown.open>div{
 
 
 /* ======================= SVG Path Recoloring ==================== */
+
+
+
+/* Misc */
+
+#svg-icon-variable-table-button path:nth-child(1){
+	fill: #ccc;
+}
+
+
 
 
 /* Nav Bar */
@@ -750,6 +797,73 @@ nav.navbar .dropdown.open>div{
 
 
 
+/* Assembly SVGs*/
+
+#svg-icon-revolute path:nth-child(5){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-slider path:nth-child(5){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-planar path:nth-child(3){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-cylindrical path:nth-child(5){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-pin_slot path:nth-child(7){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-ball path:nth-child(3){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-parallel path:nth-child(3){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-tangent path:nth-child(4){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-mateGroup path:nth-child(1){
+	fill: #999;
+}
+#svg-icon-SnapMate path:nth-child(7){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-HoverMate path:nth-child(7){
+	fill: #ccc;
+	stroke: #222;
+}
+#svg-icon-replace-part path:nth-child(4){
+	fill: #999;
+}
+#svg-icon-gear path{
+	fill: #999;
+}
+#svg-icon-rack_and_pinion path{
+	fill: #999;
+}
+#svg-icon-screw path:nth-child(3){
+	fill: #666;	
+}
+#svg-icon-screw path:nth-child(4){
+	fill: #999;	
+}
+#svg-icon-linear path:nth-child(9){	
+	fill: #999;	
+}
+#svg-icon-display-states-button path{
+	fill: #999;
+}
+
 
 
 /* Configurations */
@@ -769,7 +883,6 @@ nav.navbar .dropdown.open>div{
 
 
 /* Tab Bar */
-
 #svg-icon-tab-search-button path,
 #svg-icon-plus-button path,
 #svg-icon-home-button path,
@@ -787,7 +900,7 @@ nav.navbar .dropdown.open>div{
 
 #svg-icon-profile-part-studio path,
 #svg-icon-filter-results-button path{
-	fill: #999;
+	fill: #ccc;
 }
 #svg-icon-treelist-button path,
 #svg-icon-add-button path{
@@ -806,6 +919,22 @@ nav.navbar .dropdown.open>div{
 }
 
 
+
+/* Tab Manager Pane */
+#svg-icon-view-card path{
+	fill: #ccc;
+}
+#svg-icon-search-button path,
+#svg-icon-view-list path,
+#svg-icon-tab-sort-dropdown path{
+	fill: #fff;
+}
+.os-fallback-image{
+	filter: invert(1);
+}
+
+
+
 /* Main View */
 #svg-icon-myDocuments path,
 #svg-icon-recentlyOpened path,
@@ -816,6 +945,7 @@ nav.navbar .dropdown.open>div{
 	fill: #ccc;
 }
 
+
 /* ===================== End SVG Path Recoloring ================== */
 
 
@@ -825,6 +955,10 @@ nav.navbar .dropdown.open>div{
 
 
 /* ============ Main View ============== */
+
+.node-title{
+	color: white !important;
+}
 
 .os-billing-banner,
 .os-document-list-page-container .os-action-bar,
@@ -875,9 +1009,13 @@ os-breadcrumb .os-breadcrumb-container .os-breadcrumb-leaf{
 }
 
 
-.os-documents-quick-access-content .section-header,
-.os-where-used-document-close{
+.os-documents-quick-access-content .section-header{
 	background: #333;
+}
+
+.os-where-used-document-close{
+	background-color: #333 !important;
+	box-shadow: 0 1px #555 !important;
 }
 
 .document-details-top h2, .document-details-top p{
